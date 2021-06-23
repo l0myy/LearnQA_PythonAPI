@@ -1,2 +1,4 @@
-# The first print :)
-print("Hello, world from Anatolii!")
+import requests
+
+response = requests.get("https://playground.learnqa.ru/api/get_text")
+print(response.text)
