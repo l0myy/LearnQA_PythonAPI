@@ -41,5 +41,6 @@ for item in range(len(list_of_real_types)):
                 print(parsed_response)
             except json.JSONDecodeError:
                 print("Response not include any JSON object.")
+                print(response.text)
         else:
             print(response.text)
