@@ -23,7 +23,7 @@ def check_cookie(cookie_value):
     # Делаем второй POST запрос для проверки нашего куки
     response2 = requests.post("https://playground.learnqa.ru/api/check_auth_cookie", cookies=cookies)
     # Печатаем ответ от сервера
-    print(response2.text)
+    return response2.text
 
 
 def main():
@@ -33,12 +33,15 @@ def main():
                          "lovely", "7777777", "welcome", "888888", "princess", "dragon", "password1", "123qwe")
     # Берем каждый пароль по порядку и подставляем
     for password in list_of_passwords:
-        # Выводим какой пароль подставляем
-        print(f"Checking password - {password}:")
         # Вызываем метод для получения куки с очередным паролем из списка
         cookie_value = get_cookie(password)
         # Вызываем метод для проверки корректности куки
-        check_cookie(cookie_value)
+        text_from_server = check_cookie(cookie_value)
+        # Проверверяем прошла авторизация или нет
+        if text_from_server == 'You are authorized':
+            # Выводим пароль который подошел
+            print(f"Correct password - {password}")
+            break
 
 
 if __name__ == "__main__":
