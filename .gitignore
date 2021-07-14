@@ -1,0 +1,6 @@
+/logs/
+.idea
+Lesson3/.pytest_cache
+Lesson4/.pytest_cache
+__pycache__/
+/test_results/
