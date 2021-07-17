@@ -38,7 +38,7 @@ class MyRequests:
         Logger.add_request(url, data, headers, cookies, method)
 
         if method == 'GET':
-            response = requests.get(url, params = data, headers = headers, cookies = cookies)
+            response = requests.get(url, params=data, headers=headers, cookies=cookies)
         elif method == 'POST':
             response = requests.post(url, data=data, headers=headers, cookies=cookies)
         elif method == 'PUT':
